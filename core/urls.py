@@ -1,9 +1,12 @@
-from django.urls import path, include
-from core import views
-from core.views import SignUpView
+from django.urls import path
+
+from core.views import SignUpView, LoginView, ProfileView
 
 urlpatterns = [
 
-    path('', views.index),
     path('signup', SignUpView.as_view(), name='signup'),
+    path('login', LoginView.as_view(), name='login'),
+    path('profile', ProfileView.as_view(), name='profile'),
+
+
 ]
