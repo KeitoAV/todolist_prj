@@ -22,6 +22,8 @@ services:
       DB_HOST: ${DB_HOST}
       DEBUG: ${DEBUG}
       SECRET_KEY: ${SECRET_KEY}
+      SOCIAL_AUTH_VK_OAUTH2_KEY: ${secrets.SOCIAL_AUTH_VK_OAUTH2_KEY}
+      SOCIAL_AUTH_VK_OAUTH2_SECRET: ${secrets.SOCIAL_AUTH_VK_OAUTH2_SECRET}
     depends_on:
       db:
         condition: service_healthy
@@ -37,6 +39,9 @@ services:
       DB_HOST: ${DB_HOST}
       DEBUG: ${DEBUG}
       SECRET_KEY: ${SECRET_KEY}
+      SOCIAL_AUTH_VK_OAUTH2_KEY: ${secrets.SOCIAL_AUTH_VK_OAUTH2_KEY}
+      SOCIAL_AUTH_VK_OAUTH2_SECRET: ${secrets.SOCIAL_AUTH_VK_OAUTH2_SECRET}
+
     depends_on:
       db:
         condition: service_healthy
