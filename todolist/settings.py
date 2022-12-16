@@ -138,7 +138,6 @@ AUTH_USER_MODEL = "core.User"
 
 CORS_ALLOW_ALL_ORIGINS = True
 
-
 # settings VKOAuth2
 SOCIAL_AUTH_JSONFIELD_ENABLE = True
 
