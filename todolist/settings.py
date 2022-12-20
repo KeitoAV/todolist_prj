@@ -45,7 +45,9 @@ INSTALLED_APPS = [
     'rest_framework',
     'core',
     'corsheaders',
-    'social_django'
+    'social_django',
+    'goals',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
@@ -113,10 +115,15 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
+}
+
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru'
 
 TIME_ZONE = 'UTC'
 
