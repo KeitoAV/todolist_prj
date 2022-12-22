@@ -3,15 +3,11 @@ from django.utils import timezone
 from core.models import User
 
 
-# category
-class GoalCategory(models.Model):
+# abstract class
+class DatesModelMixin(models.Model):
     class Meta:
-        verbose_name = "Категория"
-        verbose_name_plural = "Категории"
+        abstract = True
 
-    title = models.CharField(verbose_name="Название", max_length=255)
-    user = models.ForeignKey(User, verbose_name="Автор", on_delete=models.PROTECT)
-    is_deleted = models.BooleanField(verbose_name="Удалена", default=False)
     created = models.DateTimeField(verbose_name="Дата создания")
     updated = models.DateTimeField(verbose_name="Дата последнего обновления")
 
@@ -22,8 +18,18 @@ class GoalCategory(models.Model):
         return super().save(*args, **kwargs)
 
 
-# goal
+# category
+class GoalCategory(DatesModelMixin):
+    class Meta:
+        verbose_name = "Категория"
+        verbose_name_plural = "Категории"
 
+    title = models.CharField(verbose_name="Название", max_length=255)
+    user = models.ForeignKey(User, verbose_name="Автор", on_delete=models.PROTECT)
+    is_deleted = models.BooleanField(verbose_name="Удалена", default=False)
+
+
+# goal
 class Status(models.IntegerChoices):
     to_do = 1, "К выполнению"
     in_progress = 2, "В процессе"
@@ -38,7 +44,7 @@ class Priority(models.IntegerChoices):
     critical = 4, "Критический"
 
 
-class Goal(models.Model):
+class Goal(DatesModelMixin):
     class Meta:
         verbose_name = 'Цель'
         verbose_name_plural = 'Цели'
@@ -55,5 +61,3 @@ class Goal(models.Model):
     priority = models.PositiveSmallIntegerField(
         verbose_name='Приоритет', choices=Priority.choices, default=Priority.medium
     )
-    created = models.DateTimeField(verbose_name="Дата создания")
-    updated = models.DateTimeField(verbose_name="Дата последнего обновления")
