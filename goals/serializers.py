@@ -50,8 +50,6 @@ class GoalSerializer(serializers.ModelSerializer):
         read_only_fields = ('id', 'created', 'updated', 'user')
 
     def validate_category(self, value):
-        if value.is_deleted:
-            raise serializers.ValidationError('not allowed in deleted category')
 
         if value.user != self.context['request'].user:
             raise serializers.ValidationError('not owner of category')

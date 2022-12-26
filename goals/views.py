@@ -77,11 +77,12 @@ class GoalListView(ListAPIView):
         filters.OrderingFilter,
     ]
     filterset_class = GoalDateFilter
-    ordering_fields = ('title', 'id',)
+    ordering_fields = ('title', 'created', 'id',)
+    ordering = ('title',)
     search_fields = ('title',)
 
     def get_queryset(self):
-        return self.model.objects.filter(user=self.request.user)
+        return self.model.objects.filter(user=self.request.user).exclude(status=self.model.Status.archived)
 
 
 class GoalView(RetrieveUpdateDestroyAPIView):
