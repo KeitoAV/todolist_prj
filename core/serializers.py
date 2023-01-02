@@ -19,7 +19,7 @@ class SignUpSerializer(serializers.ModelSerializer):
         validate_password(data)
         return data
 
-    def create(self, validated_data):
+    def create(self, validated_data: dict) -> User:
         password = validated_data.get('password')
         password_repeat = validated_data.pop('password_repeat')
 
@@ -39,7 +39,7 @@ class LoginSerializer(serializers.ModelSerializer):
         model = User
         fields = ['username', 'password']
 
-    def create(self, validated_data):
+    def create(self, validated_data: dict) -> User:
         user = authenticate(
             username=validated_data['username'],
             password=validated_data['password']
@@ -63,7 +63,7 @@ class UpdatePasswordSerializer(serializers.ModelSerializer):
         model = User
         fields = ['old_password', 'new_password']
 
-    def update(self, instance, validated_data):
+    def update(self, instance, validated_data: dict) -> User:
         if not instance.check_password(validated_data["old_password"]):
             raise serializers.ValidationError({"old_password": "Неправильный пароль"})
 

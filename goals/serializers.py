@@ -47,7 +47,7 @@ class GoalCreateSerializer(serializers.ModelSerializer):
         fields = '__all__'
         read_only_fields = ('id', 'created', 'updated', 'user')
 
-    def validate(self, value):
+    def validate(self, value: dict):
         role_use = BoardParticipant.objects.filter(
             user=value.get('user'),
             board=value.get('category').board,
@@ -116,7 +116,7 @@ class BoardCreateSerializer(serializers.ModelSerializer):
         read_only_fields = ('id', 'created', 'updated')
         fields = '__all__'
 
-    def create(self, validated_data):
+    def create(self, validated_data: dict) -> Board:
         user = validated_data.pop('user')
         board = Board.objects.create(**validated_data)
         BoardParticipant.objects.create(
@@ -148,7 +148,7 @@ class BoardSerializer(serializers.ModelSerializer):
         fields = '__all__'
         read_only_fields = ('id', 'created', 'updated')
 
-    def update(self, instance: Board, validated_data) -> Board:
+    def update(self, instance: Board, validated_data: dict) -> Board:
         owner = validated_data.pop('user')
         new_participants = validated_data.pop('participants')
         new_by_id = {part['user'].id: part for part in new_participants}
