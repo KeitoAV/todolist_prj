@@ -2,7 +2,7 @@
 
 ### Цель проекта: создать web-приложение — планировщик задач.
 
-#### ШАГ 1. Работа с БД + Django-admin.
+#### 1. Работа с БД + Django-admin.
 
 Стек (python 3.10, Django 4.0.1, Postgres).
 
@@ -23,7 +23,7 @@
     - python manage.py createsuperuser;
     - python manage.py runserver.
 
-#### ШАГ 2. Deploy.
+#### 2. Deploy.
 
 frontend - image: sermalenk/skypro-front:lesson-34
 
@@ -33,7 +33,7 @@ frontend - image: sermalenk/skypro-front:lesson-34
 - создан docker-compose.yaml,
 - создан файл .github/actions/action.yaml.
 
-#### ШАГ 3. Аутентификация и авторизация. OAuth2.0.
+#### 3. Аутентификация и авторизация. OAuth2.0.
 
 frontend - image: sermalenk/skypro-front:lesson-35
 
@@ -46,7 +46,7 @@ frontend - image: sermalenk/skypro-front:lesson-35
 - вход через социальную сеть VK.
 
 
- #### ШАГ 4. REST API для веб-интерфейса целей.
+ #### 4. REST API для веб-интерфейса целей.
 
 frontend - image: sermalenk/skypro-front:lesson-36
 
@@ -63,7 +63,7 @@ frontend - image: sermalenk/skypro-front:lesson-36
 Добавлены функции сортировки, фильтрации и поиска. В каждой карточке цели можно увидеть: название цели, приоритет, дату дедлайна, категорию, дату создания/обновления, комментарий, статус.
   
 
-#### ШАГ 5. Шеринг доски.
+#### 5. Шеринг доски.
 
 frontend - image: sermalenk/skypro-front:lesson-37
 
@@ -73,6 +73,11 @@ frontend - image: sermalenk/skypro-front:lesson-37
 - Создан файл permissions.py для управления доступами пользователей (владелец, редактор, читатель).
 - Создана админка для доски.
 
+#### 6. Телеграм-бот.
+
+frontend - image: sermalenk/skypro-front:lesson-38
+
+Создан бот, который требует подтверждение аккаунта в написанном приложении и через которого можно получать и создавать цели.
 
 
 
