@@ -65,3 +65,26 @@ services:
       retries: 5
     volumes:
       - ./postgres_data:/var/lib/postgresql/data
+
+  bot:
+    image: ekaterinavvv/todolist:$GITHUB_REF_NAME-$GITHUB_RUN_ID
+    environment:
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_USER: ${DB_USER}
+      DB_NAME: ${DB_NAME}
+      DB_HOST: ${DB_HOST}
+      DEBUG: ${DEBUG}
+      SECRET_KEY: ${SECRET_KEY}
+      SOCIAL_AUTH_VK_OAUTH2_KEY: ${SOCIAL_AUTH_VK_OAUTH2_KEY}
+      SOCIAL_AUTH_VK_OAUTH2_SECRET: ${SOCIAL_AUTH_VK_OAUTH2_SECRET}
+      TG_TOKEN: ${TG_TOKEN}
+    restart: always
+    depends_on:
+      db:
+        condition: service_healthy
+      migrations:
+        condition: service_completed_successfully
+    volumes:
+      - ./.env:/code/.env
+    command: python manage.py runbot
+
