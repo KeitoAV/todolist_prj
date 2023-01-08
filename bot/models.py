@@ -32,3 +32,4 @@ class TgUser(models.Model):
         self.verification_code = ver_code
         self.save()
         return ver_code
+
