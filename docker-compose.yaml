@@ -65,7 +65,3 @@ services:
     volumes:
       - ./.env:/code/.env
     command: python manage.py runbot
-
-
-
-

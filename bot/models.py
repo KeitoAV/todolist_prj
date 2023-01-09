@@ -1,6 +1,7 @@
 from django.core.validators import MinLengthValidator
 from django.db import models
 from django.utils.crypto import get_random_string
+
 from core.models import User
 
 
@@ -24,12 +25,11 @@ class TgUser(models.Model):
                                          )
 
     class Meta:
-        verbose_name = "Telegram пользователь"
-        verbose_name_plural = "Telegram пользователи"
+        verbose_name = 'Telegram пользователь'
+        verbose_name_plural = 'Telegram пользователи'
 
     def generate_verification_code(self) -> str:
         ver_code = get_random_string(10)
         self.verification_code = ver_code
         self.save()
         return ver_code
-

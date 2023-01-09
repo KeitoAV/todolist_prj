@@ -1,6 +1,20 @@
 from django.urls import path
-from goals.views import GoalCategoryCreateView, GoalCategoryView, GoalCategoryListView, GoalCreateView, GoalListView, \
-    GoalView, CommentCreateView, CommentsListView, CommentView, BoardCreateView, BoardListView, BoardView
+
+from goals.views import (
+    BoardCreateView,
+    BoardListView,
+    BoardView,
+    CommentCreateView,
+    CommentsListView,
+    CommentView,
+    GoalCategoryCreateView,
+    GoalCategoryListView,
+    GoalCategoryView,
+    GoalCreateView,
+    GoalListView,
+    GoalView
+)
+
 
 urlpatterns = [
     path('goal_category/create', GoalCategoryCreateView.as_view(), name='category_create'),

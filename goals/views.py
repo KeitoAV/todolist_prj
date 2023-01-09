@@ -1,15 +1,40 @@
 from django.db import transaction
 from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework.generics import CreateAPIView, ListAPIView, RetrieveUpdateDestroyAPIView
-from rest_framework import permissions, filters
+from rest_framework import (
+    filters,
+    permissions
+)
+from rest_framework.generics import (
+    CreateAPIView,
+    ListAPIView,
+    RetrieveUpdateDestroyAPIView
+)
 from rest_framework.pagination import LimitOffsetPagination
 
 from goals.filters import GoalDateFilter
-from goals.models import GoalCategory, Goal, GoalComment, Board
-from goals.permissions import BoardPermissions, GoalCategoryPermission, GoalPermission, CommentPermission
-from goals.serializers import GoalCategoryCreateSerializer, GoalCategorySerializer, GoalCreateSerializer, \
-    GoalSerializer, CommentCreateSerializer, CommentSerializer, BoardCreateSerializer, BoardListSerializer, \
-    BoardSerializer
+from goals.models import (
+    Board,
+    Goal,
+    GoalCategory,
+    GoalComment
+)
+from goals.permissions import (
+    BoardPermissions,
+    CommentPermission,
+    GoalCategoryPermission,
+    GoalPermission
+)
+from goals.serializers import (
+    BoardCreateSerializer,
+    BoardListSerializer,
+    BoardSerializer,
+    CommentCreateSerializer,
+    CommentSerializer,
+    GoalCategoryCreateSerializer,
+    GoalCategorySerializer,
+    GoalCreateSerializer,
+    GoalSerializer
+)
 
 
 # category

@@ -1,5 +1,11 @@
 import requests
-from bot.tg.dc import GetUpdatesResponse, SendMessageResponse, get_updates_schema, send_message_schema
+
+from bot.tg.dc import (
+    GetUpdatesResponse,
+    SendMessageResponse,
+    get_updates_schema,
+    send_message_schema
+)
 
 
 class TgClient:

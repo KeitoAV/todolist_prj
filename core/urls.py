@@ -1,6 +1,12 @@
 from django.urls import path
 
-from core.views import SignUpView, LoginView, ProfileView, UpdatePasswordView
+from core.views import (
+    LoginView,
+    ProfileView,
+    SignUpView,
+    UpdatePasswordView
+)
+
 
 urlpatterns = [
 

@@ -1,12 +1,27 @@
-from django.contrib.auth import login, logout
-from django.views.decorators.csrf import ensure_csrf_cookie
+from django.contrib.auth import (
+    login,
+    logout
+)
 from rest_framework import status
-from rest_framework.generics import CreateAPIView, GenericAPIView, RetrieveUpdateDestroyAPIView, UpdateAPIView
-from rest_framework.permissions import AllowAny, IsAuthenticated
+from rest_framework.generics import (
+    CreateAPIView,
+    GenericAPIView,
+    RetrieveUpdateDestroyAPIView,
+    UpdateAPIView
+)
+from rest_framework.permissions import (
+    AllowAny,
+    IsAuthenticated
+)
 from rest_framework.response import Response
 
 from core.models import User
-from core.serializers import SignUpSerializer, LoginSerializer, ProfileSerializer, UpdatePasswordSerializer
+from core.serializers import (
+    LoginSerializer,
+    ProfileSerializer,
+    SignUpSerializer,
+    UpdatePasswordSerializer
+)
 
 
 class SignUpView(CreateAPIView):

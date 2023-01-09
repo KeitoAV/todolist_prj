@@ -1,5 +1,12 @@
 from django.contrib import admin
-from goals.models import GoalCategory, Goal, GoalComment, Board, BoardParticipant
+
+from goals.models import (
+    Board,
+    BoardParticipant,
+    Goal,
+    GoalCategory,
+    GoalComment
+)
 
 
 # category

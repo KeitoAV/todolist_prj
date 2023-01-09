@@ -1,11 +1,12 @@
-from todolist.settings import TG_TOKEN
 from rest_framework import status
 from rest_framework.generics import UpdateAPIView
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
+
 from bot.models import TgUser
 from bot.serializers import TgUserSerializer
 from bot.tg.client import TgClient
+from todolist.settings import TG_TOKEN
 
 
 class BotView(UpdateAPIView):

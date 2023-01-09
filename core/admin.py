@@ -1,5 +1,4 @@
 from django.contrib import admin
-
 # Register your models here.
 from django.contrib.auth.admin import UserAdmin
 
@@ -34,4 +33,3 @@ class CustomUserAdmin(UserAdmin):
     search_fields = ('username', 'first_name', 'last_name', 'email')
     list_filter = ('is_staff', 'is_superuser', 'is_active')
     readonly_fields = ('last_login', 'date_joined')
-

@@ -2,9 +2,15 @@ from django.db import transaction
 from rest_framework import serializers
 from rest_framework.exceptions import ValidationError
 
-from core.serializers import ProfileSerializer
-from goals.models import GoalCategory, Goal, GoalComment, Board, BoardParticipant
 from core.models import User
+from core.serializers import ProfileSerializer
+from goals.models import (
+    Board,
+    BoardParticipant,
+    Goal,
+    GoalCategory,
+    GoalComment
+)
 
 
 # category

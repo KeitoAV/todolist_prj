@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+
 from core.models import User
 
 
@@ -111,5 +112,3 @@ class GoalComment(DatesModelMixin):
     text = models.CharField(verbose_name='Комментарий', max_length=400)
     user = models.ForeignKey(User, verbose_name='Автор', on_delete=models.CASCADE)
     goal = models.ForeignKey(Goal, verbose_name='Цель', on_delete=models.CASCADE)
-
-

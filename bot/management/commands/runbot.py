@@ -5,8 +5,10 @@ from django.core.management import BaseCommand
 from bot.models import TgUser
 from bot.tg.client import TgClient
 from bot.tg.dc import Message
-from goals.models import GoalCategory
-from goals.models import Goal
+from goals.models import (
+    Goal,
+    GoalCategory
+)
 from todolist.settings import TG_TOKEN
 
 
@@ -96,7 +98,7 @@ class Command(BaseCommand):
             for item in response.result:
                 self.offset = item.update_id + 1
 
-                if item.message.text.strip().lower() == "/cancel":
+                if item.message.text.strip().lower() == '/cancel':
                     self.tg_client.send_message(chat_id=item.message.chat.id, text='Cоздание цели прервано')
                     flag = False
                 else:
